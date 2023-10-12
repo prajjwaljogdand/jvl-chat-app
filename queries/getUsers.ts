@@ -1,4 +1,4 @@
-import db from "@/app/connections/db";
+import db from "@/connections/db";
 import getSession from "./getSession";
 
 const getUsers = async () => {

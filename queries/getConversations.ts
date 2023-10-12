@@ -1,4 +1,4 @@
-import db from "@/app/connections/db";
+import db from "@/connections/db";
 import getCurrentUser from "./getCurrentUser";
 
 const getConversations = async () => {
@@ -19,7 +19,7 @@ const getConversations = async () => {
         }
       },
       include: {
-        users: true,
+        participants: true,
         messages: {
           include: {
             sender: true,

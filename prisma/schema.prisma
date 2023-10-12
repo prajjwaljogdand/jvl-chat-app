@@ -46,6 +46,8 @@ model Conversation {
   lastMessageAt DateTime  @default(now())
   name          String?
   isGroup       Boolean?
+  messagesIds   String[]
+  userIds       String[]
   messages      Message[]
   participants  User[]    @relation("ConversationToUser")
 }

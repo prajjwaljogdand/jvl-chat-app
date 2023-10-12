@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 
-import db from "@/app/connections/db";
+import db from "@/connections/db";
 import { NextResponse } from "next/server";
 
 export async function POST(

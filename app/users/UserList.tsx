@@ -26,6 +26,7 @@ const UserList: React.FC<UserListProps> = ({
         border-r 
         border-gray-200
         block w-full left-0
+        dark:bg-gray-800
       "
     >
       <div className="px-5">
@@ -36,6 +37,7 @@ const UserList: React.FC<UserListProps> = ({
               font-bold 
               text-neutral-800 
               py-4
+              dark:text-white
             "
           >
             Friends

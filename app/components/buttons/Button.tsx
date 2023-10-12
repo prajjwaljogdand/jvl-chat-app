@@ -8,6 +8,7 @@ interface ButtonProps {
   secondary?: boolean;
   danger?: boolean;
   disabled?: boolean;
+  rounded?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -18,6 +19,7 @@ const Button: React.FC<ButtonProps> = ({
   secondary,
   danger,
   disabled,
+  rounded = false,
 }) => {
   return ( 
     <button
@@ -38,9 +40,10 @@ const Button: React.FC<ButtonProps> = ({
         `,
         disabled && 'opacity-50 cursor-default',
         fullWidth && 'w-full',
-        secondary ? 'text-gray-900' : 'text-white',
+        secondary ? 'text-gray-400 hover:text-orange-400 rounded-full' : 'text-white',
         danger && 'bg-rose-500 hover:bg-rose-600 focus-visible:outline-rose-600',
-        !secondary && !danger && 'bg-sky-500 hover:bg-sky-600 focus-visible:outline-sky-600'
+        !secondary && !danger && 'bg-sky-500 hover:bg-sky-600 focus-visible:outline-sky-600',
+        rounded && 'rounded-full bg-gray-200 dark:bg-gray-700'
       )}
     >
       {children}
