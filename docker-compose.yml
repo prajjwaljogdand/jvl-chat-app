@@ -1,13 +1,8 @@
 version: '3'
 services:
   web:
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile.nextjs
     ports:
-      - "3000:3000" # Map host port to container port
-
-  db:
-    image: postgres
-    environment:
-      POSTGRES_DB: jvl
-      POSTGRES_USER: prajjwal
-      POSTGRES_PASSWORD: jvl123
+      - "3000:3000"
