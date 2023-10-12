@@ -29,6 +29,8 @@ const ConvoBody: React.FC<BodyProps> = ({ initialMessages = [] }) => {
 
     const messageHandler = (message: FullMessageType) => {
       axios.post(`/api/conversations/${conversationId}/seen`);
+
+      console.log(message)
       
       setMessages((current) => {
         if (find(current, { id: message.id })) {

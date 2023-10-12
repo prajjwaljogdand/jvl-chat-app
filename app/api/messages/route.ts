@@ -68,7 +68,7 @@ export async function POST(request: Request) {
         id: conversationId,
         messages: [lastMessage],
       });
-      // pusherServer.trigger(conversationId, "messages:new", newMessage);
+      pusherServer.trigger(conversationId, "messages:new", newMessage);
     });
 
     return NextResponse.json(newMessage);
