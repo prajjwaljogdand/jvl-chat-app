@@ -10,12 +10,7 @@ import clsx from "clsx";
 
 import useConversation from "@/app/hooks/useConversation";
 import { FullConversationType } from "@/types";
-import Input from "@/app/components/Input";
 
-import { MdSearch } from "react-icons/md";
-import SearchInput from "./SearchInput";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import axios from "axios";
 import { pusherClient } from "@/connections/pusher";
 import { find } from "lodash";
 
@@ -84,25 +79,6 @@ const ConversationList: React.FC<ConversationListProps> = ({
     pusherClient.bind("conversation:remove", removeHandler);
   }, [pusherKey, router]);
 
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm<FieldValues>({
-    defaultValues: {
-      user: "",
-    },
-  });
-
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    setValue("user", "", { shouldValidate: true });
-    console.log("searching", data);
-    // axios.post("/api/search", {
-    //   ...data,
-    //   conversationId: conversationId,
-    // });
-  };
 
   return (
     <div>
@@ -128,43 +104,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
       >
         <div className="px-5">
           <div className="flex flex-col justify-between mb-4 pt-4">
-            <div
-              className="
-        py-2 
-        bg-white 
-        border-b 
-        dark:border-slate-600
-        flex 
-        items-center 
-        gap-2 
-        lg:gap-4 
-        w-full
-        dark:bg-gray-800
-        dark:text-white
-      "
-            >
-              <form
-                onSubmit={handleSubmit(onSubmit)}
-                className="flex items-center gap-2 lg:gap-4 w-full"
-              >
-                <SearchInput
-                  id="search"
-                  register={register}
-                  errors={errors}
-                  required
-                  placeholder="Search for friend"
-                />
-                <button
-                  type="submit"
-                  className="rounded-full p-2 bg-gray-200 dark:bg-gray-700 cursor-pointer hover:bg-orange-600 transition"
-                >
-                  <MdSearch
-                    size={18}
-                    className="text-black dark:text-white"
-                  />
-                </button>
-              </form>
-            </div>
+            
             <div className="text-2xl font-bold text-neutral-800 dark:text-white">
               Chats
             </div>
