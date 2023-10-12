@@ -67,7 +67,7 @@ const ConvoBody: React.FC<BodyProps> = ({ initialMessages = [] }) => {
   return (
     <div
       className="flex-1 overflow-y-auto dark:text-white
-    dark:bg-gray-800 bottom-10 "
+    dark:bg-gray-800 bottom-10 lg:pt-20 scrollbar-hide"
     >
       {messages.map((message, i) => (
         <Message

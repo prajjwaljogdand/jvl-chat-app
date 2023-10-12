@@ -25,7 +25,7 @@ const ChatId = async ({ params }: { params: IParams }) => {
   }
 
   return (
-    <div className="lg:pl-80 h-full">
+    <div className="lg:pl-80 h-screen s">
       <div className="h-full flex flex-col">
         <ConvoHeader conversation={conversation}  />
         <ConvoBody initialMessages={messages} />
