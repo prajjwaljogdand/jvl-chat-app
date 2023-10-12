@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={ "dark:bg-gray-800" + inter.className}>
+      <body className={"dark:bg-gray-800" + inter.className}>
         <AuthContext>
           <SocketProvider>
             <ToastContext />

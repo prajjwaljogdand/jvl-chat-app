@@ -22,33 +22,37 @@ export async function DELETE(
 
     const existingConversation = await db.conversation.findUnique({
       where: {
-        id: conversationId
+        id: conversationId,
       },
       include: {
-        participants: true
-      }
+        participants: true,
+      },
     });
 
     if (!existingConversation) {
-      return new NextResponse('Invalid ID', { status: 400 });
+      return new NextResponse("Invalid ID", { status: 400 });
     }
 
     const deletedConversation = await db.conversation.deleteMany({
       where: {
         id: conversationId,
         userIds: {
-          hasSome: [currentUser.id]
+          hasSome: [currentUser.id],
         },
       },
     });
 
     existingConversation.participants.forEach((user) => {
       if (user.email) {
-        pusherServer.trigger(user.email, 'conversation:remove', existingConversation);
+        pusherServer.trigger(
+          user.email,
+          "conversation:remove",
+          existingConversation
+        );
       }
     });
 
-    return NextResponse.json(deletedConversation)
+    return NextResponse.json(deletedConversation);
   } catch (error) {
     return NextResponse.json(null);
   }

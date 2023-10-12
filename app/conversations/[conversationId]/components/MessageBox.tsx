@@ -7,7 +7,7 @@ import axios from "axios";
 import useConversation from "@/app/hooks/useConversation";
 import EmojiPicker from "emoji-picker-react";
 import { useState } from "react";
-import Button from "@/app/components/buttons/Button";
+import Button from "@/app/components/Button";
 import { MdSentimentSatisfiedAlt } from "react-icons/md";
 
 const MessageBox = () => {

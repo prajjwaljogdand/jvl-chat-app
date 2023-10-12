@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { format } from "date-fns";
 import { useSession } from "next-auth/react";
-import { FullMessageType } from "@/app/types";
+import { FullMessageType } from "@/types";
 
 import Avatar from "@/app/components/Avatar";
 
@@ -34,7 +34,6 @@ const Message: React.FC<MessageBoxProps> = ({ data, isLast }) => {
     data.image ? "rounded-md p-0 bg-transparent" : "rounded-full py-2 px-3"
   );
 
-  console.log(data.image)
   return (
     <div className={container}>
     <div className={avatar}>

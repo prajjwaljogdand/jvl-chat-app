@@ -7,9 +7,9 @@ import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { User } from '@prisma/client';
 import { CldUploadButton } from 'next-cloudinary';
 
-import Input from '../../inputs/Input';
-import Modal from '../../modals/Modals';
-import Button from '../../buttons/Button';
+import Input from '../../Input';
+import Modal from '../../Modals';
+import Button from '../../Button';
 import Image from 'next/image';
 import { toast } from 'react-hot-toast';
 

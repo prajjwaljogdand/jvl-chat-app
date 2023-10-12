@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import DesktopItem from "./DesktopItem";
 import useRoutes from "@/app/hooks/useRoutes";
@@ -10,19 +10,22 @@ import { SocketIndicator } from "../../SocketIndicator";
 import ThemeToggler from "../../ThemeToggler";
 
 interface DesktopSidebarProps {
-  currentUser: User | null
+  currentUser: User | null;
 }
 
-const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
-  currentUser
-}) => {
+const DesktopSidebar: React.FC<DesktopSidebarProps> = ({ currentUser }) => {
   const routes = useRoutes();
   const [isOpen, setIsOpen] = useState(false);
 
-  return ( 
+  return (
     <>
-      <SettingsModal currentUser={currentUser} isOpen={isOpen} onClose={() => setIsOpen(false)} />
-      <div className="
+      <SettingsModal
+        currentUser={currentUser}
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      />
+      <div
+        className="
         hidden 
         lg:fixed 
         lg:inset-y-0 
@@ -40,7 +43,8 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
         lg:flex-col
         justify-between
         dark:border-slate-600
-      ">
+      "
+      >
         <nav className="mt-4 flex flex-col justify-between">
           <ul role="list" className="flex flex-col items-center space-y-1">
             {routes.map((item) => (
@@ -56,18 +60,17 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
           </ul>
         </nav>
         <nav className="mt-4 flex flex-col justify-between items-center">
-        <ThemeToggler />
-          <div 
-            onClick={() => setIsOpen(true)} 
+          <ThemeToggler />
+          <div
+            onClick={() => setIsOpen(true)}
             className="cursor-pointer hover:opacity-75 transition"
           >
-          
             <Avatar user={currentUser} />
           </div>
         </nav>
       </div>
     </>
-   );
-}
- 
+  );
+};
+
 export default DesktopSidebar;

@@ -9,8 +9,8 @@ import ConversationBox from "./ConversationBox";
 import clsx from "clsx";
 
 import useConversation from "@/app/hooks/useConversation";
-import { FullConversationType } from "@/app/types";
-import Input from "@/app/components/inputs/Input";
+import { FullConversationType } from "@/types";
+import Input from "@/app/components/Input";
 
 import { MdSearch } from "react-icons/md";
 import SearchInput from "./SearchInput";
@@ -166,7 +166,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
               </form>
             </div>
             <div className="text-2xl font-bold text-neutral-800 dark:text-white">
-              Messages
+              Chats
             </div>
           </div>
           {items.map((item) => (

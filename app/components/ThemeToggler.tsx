@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react";
-import { DarkModeSwitch } from "react-toggle-dark-mode";
 import useDarkMode from "../hooks/useDarkMode";
-import Button from "./buttons/Button";
+import Button from "./Button";
 import { MdSunny, MdBedtime } from "react-icons/md";
 
 export default function ThemeToggler() {

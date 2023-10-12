@@ -37,7 +37,11 @@ const MobileFooter: React.FC<MobileFooterProps> = ({ currentUser }) => {
         lg:hidden
       "
     >
-      <SettingsModal currentUser={currentUser} isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <SettingsModal
+        currentUser={currentUser}
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      />
       {routes.map((route) => (
         <MobileItem
           key={route.href}
@@ -47,7 +51,8 @@ const MobileFooter: React.FC<MobileFooterProps> = ({ currentUser }) => {
           onClick={route.onClick}
         />
       ))}
-      <nav className="group 
+      <nav
+        className="group 
         flex 
         gap-x-3 
         text-sm 
@@ -58,7 +63,8 @@ const MobileFooter: React.FC<MobileFooterProps> = ({ currentUser }) => {
         p-4 
         text-gray-500 
         hover:text-black 
-        hover:bg-gray-100">
+        hover:bg-gray-100"
+      >
         <div
           onClick={() => setIsOpen(true)}
           className="cursor-pointer hover:opacity-75 transition"

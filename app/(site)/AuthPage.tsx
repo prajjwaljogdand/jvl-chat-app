@@ -3,8 +3,8 @@
 import axios from "axios";
 import { signIn, useSession } from "next-auth/react";
 
-import Input from "@/app/components/inputs/Input";
-import Button from "@/app/components/buttons/Button";
+import Input from "@/app/components/Input";
+import Button from "@/app/components/Button";
 
 import { useCallback, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -17,15 +17,15 @@ import { toast } from "react-hot-toast";
 type Variant = "LOGIN" | "REGISTER";
 
 const AuthPage = () => {
-    const session = useSession();
+  const session = useSession();
   const router = useRouter();
   const [variant, setVariant] = useState<Variant>("LOGIN");
 
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (session?.status === 'authenticated') {
-      router.push('/users')
+    if (session?.status === "authenticated") {
+      router.push("/users");
     }
   }, [session?.status, router]);
 
@@ -99,8 +99,6 @@ const AuthPage = () => {
     // @TODO Next-Auth social SignIn
     signIn(action, { redirect: false })
       .then((callback) => {
-        console.log(callback);
-
         if (callback?.error) {
           toast.error("Invalid credentials!");
         }
@@ -108,10 +106,10 @@ const AuthPage = () => {
         if (callback?.ok) {
           toast.success("Logged In 👍");
           console.log("Logged In 👍");
-        //   router.push("/conversations");
+          //   router.push("/conversations");
         }
       })
-      .catch(errors => console.log(errors))
+      .catch((errors) => console.log(errors))
       .finally(() => setIsLoading(false));
   };
 

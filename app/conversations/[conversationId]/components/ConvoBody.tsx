@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { pusherClient } from "@/connections/pusher";
 import useConversation from "@/app/hooks/useConversation";
 import Message from "./Message";
-import { FullMessageType } from "@/app/types";
+import { FullMessageType } from "@/types";
 import { find } from "lodash";
 
 interface BodyProps {
@@ -29,7 +29,6 @@ const ConvoBody: React.FC<BodyProps> = ({ initialMessages = [] }) => {
 
     const messageHandler = (message: FullMessageType) => {
       axios.post(`/api/conversations/${conversationId}/seen`);
-      console.log(message);
       
       setMessages((current) => {
         if (find(current, { id: message.id })) {
