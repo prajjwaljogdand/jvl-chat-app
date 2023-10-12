@@ -6,7 +6,6 @@ import SettingsModal from "./Settings";
 import { useState } from "react";
 import Avatar from "../../Avatar";
 import { User } from "@prisma/client";
-import { SocketIndicator } from "../../SocketIndicator";
 import ThemeToggler from "../../ThemeToggler";
 
 interface DesktopSidebarProps {

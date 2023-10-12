@@ -2,7 +2,6 @@ import getCurrentUser from "@/queries/getCurrentUser";
 
 import DesktopSidebar from "./component/DesktopNavbar";
 import MobileFooter from "./component/MobileNavbar";
-import { SocketIndicator } from "../SocketIndicator";
 async function Sidebar({ children }: { children: React.ReactNode }) {
   const currentUser = await getCurrentUser();
 
